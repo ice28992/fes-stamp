@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import jsQR from 'jsqr';
 import styles from './style.module.css';
 import Image from 'next/image';
+import Cookies from 'js-cookie';
 
 import { SmallCard } from '@/components/ui/Card';
 
@@ -37,7 +38,6 @@ export default function Camera() {
           if (code) {
             const qrData = code.data;
             setQrCodeData(qrData);
-            console.log('QR Code Data:', qrData);
 
             // QRコードのデータをカンマで分割
             const [id, message] = qrData.split(',');
@@ -46,6 +46,16 @@ export default function Camera() {
 
             // イベントIDに対応する画像をセット
             setImageUrl(`/images/${id}.png`);
+
+            // クッキーに保存
+            Cookies.set('eventId', id, { expires: 1 });
+            Cookies.set('eventMessage', message, { expires: 1 });
+            // クッキーデータログ
+            const eventIdFromCookie = Cookies.get('eventId');
+            const eventMessageFromCookie = Cookies.get('eventMessage');
+
+            console.log('クッキーから取得した eventId:', eventIdFromCookie);
+            console.log('クッキーから取得した eventMessage:', eventMessageFromCookie);
           }
         }
         setTimeout(() => { checkImage(); }, 200);
@@ -78,13 +88,13 @@ export default function Camera() {
       </div>
 
       {/* QRコードの内容があれば表示 */}
-      <div className={styles.contents}>
-        {qrCodeData && eventId && eventMessage && (
+      {qrCodeData && eventId && eventMessage && (
+        <div className={styles.contents}>
           <SmallCard
             cardColor="#6be0a5ff"
             cardTitle={`スタンプ ${eventId}`}
             cardText={
-              <div>
+              <>
                 {imageUrl && 
                   <Image
                     className={styles.img}
@@ -94,12 +104,12 @@ export default function Camera() {
                     height={100}
                   />
                 }
-                <p>{eventMessage}</p>
-              </div>
+                <span>{eventMessage}</span>
+              </>
             }
           />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

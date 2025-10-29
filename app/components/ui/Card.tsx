@@ -4,8 +4,8 @@ import styles from './Card.module.css';
 
 type CardProps = {
   cardColor?: string;
-  cardTitle?: string;
-  cardText?: string;
+  cardTitle: string | null;
+  cardText: string | null;
   children?: React.ReactNode;
 };
 
@@ -29,4 +29,14 @@ const LargeCard: React.FC<CardProps> = ({ cardColor = '#fff', cardTitle, cardTex
   );
 };
 
-export { SmallCard, LargeCard };
+const WrapCard: React.FC<CardProps> = ({ cardColor = '#fff', cardTitle, cardText, children }) => {
+  return (
+    <div className={styles.wcard} style={{ backgroundColor: cardColor }}>
+      <h3 className={styles.title}>{cardTitle}</h3>
+      <p className={styles.text}>{cardText}</p>
+      {children && <div className={styles.children}>{children}</div>}
+    </div>
+  );
+};
+
+export { SmallCard, LargeCard, WrapCard };

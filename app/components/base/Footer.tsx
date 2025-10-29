@@ -9,15 +9,15 @@ const Footer = () => {
     <footer className={styles.footer}>
       <nav className={styles.nav}>
         <Link href="/" className={styles.link}>
-          <IoHome style={{ verticalAlign: 'middle', marginRight: 4 }} />
+          <IoHome />
           スタンプ一覧
         </Link>
-        <Link href="/camera" className={styles.link}>
-          <IoQrCode style={{ verticalAlign: 'middle', marginRight: 4 }} />
+        <Link href="/qrReader" className={styles.link}>
+          <IoQrCode />
           QR読み取り
         </Link>
         <Link href="/detail" className={styles.link}>
-          <FaStamp style={{ verticalAlign: 'middle', marginRight: 4 }} />
+          <FaStamp />
           スタンプ詳細
         </Link>
       </nav>

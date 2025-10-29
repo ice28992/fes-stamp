@@ -4,8 +4,8 @@ import styles from './Card.module.css';
 
 type CardProps = {
   cardColor?: string;
-  cardTitle: string | null;
-  cardText: string | React.ReactNode | null;
+  cardTitle?: string | null;
+  cardText?: string | React.ReactNode | null;
   children?: React.ReactNode;
 };
 

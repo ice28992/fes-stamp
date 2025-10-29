@@ -1,9 +1,13 @@
-import Card from '@/components/ui/Card'
+import { LargeCard } from '@/components/ui/Card'
 
 export default function Detail() {
   return (
     <div>
-      <Card cardColor="#47b881ff" cardTitle="Aの詳細" cardText="Aはこういうものだよ" />
+      <LargeCard 
+        cardColor="#61f48dff" 
+        cardTitle="スタンプ一覧" 
+        cardText="スタンプ" 
+      />
     </div>
   );
 }

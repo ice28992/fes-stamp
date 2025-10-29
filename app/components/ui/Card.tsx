@@ -8,13 +8,22 @@ type CardProps = {
   cardText?: string;
 };
 
-const Card: React.FC<CardProps> = ({ cardColor='#fff', cardTitle, cardText }) => {
+const SmallCard: React.FC<CardProps> = ({ cardColor = '#fff', cardTitle, cardText }) => {
   return (
-    <div className={styles.card} style={{ backgroundColor: cardColor }}>
+    <div className={styles.scard} style={{ backgroundColor: cardColor }}>
       <h3 className={styles.title}>{cardTitle}</h3>
-      <p className={styles.cardText}>{cardText}</p>
+      <p className={styles.text}>{cardText}</p>
     </div>
   );
 };
 
-export default Card;
+const LargeCard: React.FC<CardProps> = ({ cardColor = '#fff', cardTitle, cardText }) => {
+  return (
+    <div className={styles.lcard} style={{ backgroundColor: cardColor }}>
+      <h3 className={styles.title}>{cardTitle}</h3>
+      <p className={styles.text}>{cardText}</p>
+    </div>
+  );
+};
+
+export { SmallCard, LargeCard };

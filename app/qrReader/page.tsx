@@ -1,9 +1,13 @@
-import Card from '@/components/ui/Card'
+import { LargeCard } from '@/components/ui/Card'
 
 export default function Home() {
   return (
     <div>
-      <Card cardColor="#93deebff" cardTitle="QRリーダー" cardText="スタンプB" />
+      <LargeCard 
+        cardColor="#61d9f4ff" 
+        cardTitle="スタンプ一覧" 
+        cardText="スタンプ" 
+      />
     </div>
   );
 }

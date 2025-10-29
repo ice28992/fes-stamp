@@ -1,13 +1,9 @@
-import { LargeCard } from '@/components/ui/Card'
+import Camera from './content';
 
 export default function Home() {
   return (
     <div>
-      <LargeCard 
-        cardColor="#61d9f4ff" 
-        cardTitle="スタンプ一覧" 
-        cardText="スタンプ" 
-      />
+      <Camera/>
     </div>
   );
 }

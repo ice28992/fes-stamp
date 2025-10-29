@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #84bec5;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.h2 {
+  color: #3e3e3e;
+  font-size: 20px;
+}
+
+@media (max-width: 700px) {
+  .h1 {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1120px) {
+  .h1 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .h1 {
+    font-size: 20px;
+  }
+}

@@ -15,3 +15,8 @@
 .hidden {
   display: none;
 }
+
+.img {
+  margin: auto;
+  padding-bottom: 10px;
+}

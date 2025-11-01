@@ -21,6 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#84bec5" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+      </head>
       <body className={`${MPlus.className} antialiased`}>
         <Header />
         <main>{children}</main>

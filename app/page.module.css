@@ -1,3 +1,8 @@
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+}
+
 .contents {
   display: flex;
   justify-content: center;

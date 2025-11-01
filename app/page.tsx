@@ -15,7 +15,7 @@ export default function Home() {
   const imageUrl = selectedEvent ? `/images/${selectedEvent.id}.png` : null;
 
   return (
-    <>
+    <div className={styles.wrapper}>
       {/* スタンプ一覧カード */}
       <div className={styles.contents}>
         <WrapCard cardTitle="スタンプ一覧">
@@ -81,6 +81,6 @@ export default function Home() {
           />
         </div>
       </>)}
-    </>
+    </div>
   );
 }

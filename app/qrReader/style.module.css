@@ -1,6 +1,8 @@
 .wrapper {
   height: 100vh;
   overflow-y: auto;
+  background: #f9f9f9;
+  padding-bottom: 80px;
 }
 
 .h3 {

@@ -1,29 +1,32 @@
+'use client';
+
 import Image from 'next/image';
 import { WrapCard } from '@/components/ui/Card';
+import { EventCookie } from '@/hooks/eventCookie';
 import styles from './page.module.css';
 
-const images = [
-  '/images/ID1.png',
-  '/images/ID2.png',
-  '/images/ID3.png',
-];
-
 export default function Home() {
+  const { events } = EventCookie(); // クッキーからイベント一覧取得
+
   return (
     <div className={styles.contents}>
       <WrapCard cardTitle="スタンプ一覧">
-        <div className={styles.gridContainer}>
-          {images.map((src, index) => (
-            <div key={index} className={styles.gridItem}>
-              <Image
-                src={src}
-                alt={`IDN Image ${index + 1}`}
-                width={50}
-                height={50}
-              />
-            </div>
-          ))}
-        </div>
+        {events.length == 0 ? (
+          <p>まだスタンプがありません。</p>
+        ) : (
+          <div className={styles.gridContainer}>
+            {events.map((ev) => (
+              <div key={ev.id} className={styles.gridItem}>
+                <Image
+                  src={`/images/${ev.id}.png`}
+                  alt={`Event ${ev.id} Image`}
+                  width={70}
+                  height={70}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </WrapCard>
     </div>
   );

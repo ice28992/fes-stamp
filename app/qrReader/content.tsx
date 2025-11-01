@@ -48,14 +48,27 @@ export default function Camera() {
             setImageUrl(`/images/${id}.png`);
 
             // クッキーに保存
-            Cookies.set('eventId', id, { expires: 1 });
-            Cookies.set('eventMessage', message, { expires: 1 });
-            // クッキーデータログ
-            const eventIdFromCookie = Cookies.get('eventId');
-            const eventMessageFromCookie = Cookies.get('eventMessage');
+            const eventCookie = Cookies.get('events');
+            let eventArray: { id: string; message: string }[] = [];
 
-            console.log('クッキーから取得した eventId:', eventIdFromCookie);
-            console.log('クッキーから取得した eventMessage:', eventMessageFromCookie);
+            if (eventCookie) {
+              try {
+                eventArray = JSON.parse(eventCookie);
+              } catch (e) {
+                console.error('クッキーの解析に失敗', e);
+                eventArray = [];
+              }
+            }
+
+            // eventId上書き or 追加
+            const index = eventArray.findIndex(ev => ev.id === id);
+            if (index !== -1) {
+              eventArray[index].message = message;
+            } else {
+              eventArray.push({ id, message });
+            }
+            Cookies.set('events', JSON.stringify(eventArray), { expires: 1 });
+            console.log('現在の events クッキー:', Cookies.get('events'));
           }
         }
         setTimeout(() => { checkImage(); }, 200);

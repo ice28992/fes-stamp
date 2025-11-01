@@ -1,9 +1,9 @@
-import Camera from './content';
+import QRReader from './content';
 
 export default function Home() {
   return (
     <div>
-      <Camera/>
+      <QRReader/>
     </div>
   );
 }

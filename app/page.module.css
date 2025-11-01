@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 .gridContainer {
@@ -23,3 +24,18 @@
   box-shadow: 2px 2px 2px rgb(88, 184, 166);
 }
 
+.h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.cardWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  margin: auto;
+  padding-bottom: 10px;
+}

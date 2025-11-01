@@ -21,13 +21,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #3e3e3e;
+  color: #698584;
   font-size: 15px;
   text-decoration: none;
 }
 
 .footer a:hover {
-  color: #698584;
+  color: #3e3e3e;
 }
 
 .footer svg {

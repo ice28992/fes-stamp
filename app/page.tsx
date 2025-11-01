@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { WrapCard } from '@/components/ui/Card';
 import { LargeCard } from '@/components/ui/Card';
 import { EventCookie, EventData } from '@/hooks/eventCookie';
-import styles from './page.module.css';
+import styles from './style.module.css';
 
 export default function Home() {
   const { events } = EventCookie();
@@ -15,7 +15,7 @@ export default function Home() {
   const imageUrl = selectedEvent ? `/images/${selectedEvent.id}.png` : null;
 
   return (
-    <>
+    <div className={styles.wrapper}>
       {/* スタンプ一覧カード */}
       <div className={styles.contents}>
         <WrapCard cardTitle="スタンプ一覧">
@@ -44,11 +44,14 @@ export default function Home() {
 
       {/* 残りスタンプ個数 */}
       {events.length === totalStamps ? (
-        <><p className={styles.h2}>
-          SuwaGeeksのブースに行くと、<br />
-          ちょっとしたお菓子がもらえます！<br />
-          ※無くなり次第終了です
-        </p><hr /></>
+        <>
+          <p className={styles.h2}>
+            SuwaGeeksのブースに行くと、<br />
+            ちょっとしたお菓子がもらえます！<br />
+            ※無くなり次第終了です
+          </p>
+          <hr />
+        </>
       ) : (
         <h2 className={styles.h2}>
           残りのスタンプは{totalStamps - events.length}個です！
@@ -58,29 +61,29 @@ export default function Home() {
       {/* 選択したスタンプの詳細カード */}
       {selectedEvent && (
         <>
-        <h2 className={styles.h2}>【選択したカードの詳細】</h2>
-        <div className={styles.cardWrap}>
-            <LargeCard
-            cardColor="#89c0cf"
-            cardTitle={`スタンプ：${selectedEvent.id}`}
-            cardText={
-              <>
-                {imageUrl && (
-                  <Image
-                    className={styles.img}
-                    src={imageUrl}
-                    alt={`Event ${selectedEvent.id} Image`}
-                    width={100}
-                    height={100}
-                  />
-                )}
-                <span>{selectedEvent.name}</span><br/>
-                <span>{selectedEvent.message}</span>
-              </>
-            }
+          <h3 className={styles.h3}>【選択したカードの詳細】</h3>
+          <div className={styles.cardWrap}>
+              <LargeCard
+              cardColor="#89c0cf"
+              cardTitle={`スタンプ：${selectedEvent.id}`}
+              cardText={
+                <>
+                  {imageUrl && (
+                    <Image
+                      className={styles.img}
+                      src={imageUrl}
+                      alt={`Event ${selectedEvent.id} Image`}
+                      width={100}
+                      height={100}
+                    />
+                  )}
+                  <span>{selectedEvent.name}</span><br/>
+                  <span>{selectedEvent.message}</span>
+                </>
+              }
           />
         </div>
       </>)}
-    </>
+    </div>
   );
 }

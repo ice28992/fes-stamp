@@ -2,7 +2,6 @@
 import styles from './Footer.module.css';
 import Link from 'next/link';
 import { IoHome, IoQrCode } from "react-icons/io5";
-import { FaStamp } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -15,10 +14,6 @@ const Footer = () => {
         <Link href="/qrReader" className={styles.link}>
           <IoQrCode />
           QR読み取り
-        </Link>
-        <Link href="/detail" className={styles.link}>
-          <FaStamp />
-          スタンプ詳細
         </Link>
       </nav>
     </footer>

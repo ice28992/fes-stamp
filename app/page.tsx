@@ -44,11 +44,14 @@ export default function Home() {
 
       {/* 残りスタンプ個数 */}
       {events.length === totalStamps ? (
-        <><p className={styles.h2}>
-          SuwaGeeksのブースに行くと、<br />
-          ちょっとしたお菓子がもらえます！<br />
-          ※無くなり次第終了です
-        </p><hr /></>
+        <>
+          <p className={styles.h2}>
+            SuwaGeeksのブースに行くと、<br />
+            ちょっとしたお菓子がもらえます！<br />
+            ※無くなり次第終了です
+          </p>
+          <hr />
+        </>
       ) : (
         <h2 className={styles.h2}>
           残りのスタンプは{totalStamps - events.length}個です！
@@ -58,26 +61,26 @@ export default function Home() {
       {/* 選択したスタンプの詳細カード */}
       {selectedEvent && (
         <>
-        <h2 className={styles.h2}>【選択したカードの詳細】</h2>
-        <div className={styles.cardWrap}>
-            <LargeCard
-            cardColor="#89c0cf"
-            cardTitle={`スタンプ：${selectedEvent.id}`}
-            cardText={
-              <>
-                {imageUrl && (
-                  <Image
-                    className={styles.img}
-                    src={imageUrl}
-                    alt={`Event ${selectedEvent.id} Image`}
-                    width={100}
-                    height={100}
-                  />
-                )}
-                <span>{selectedEvent.name}</span><br/>
-                <span>{selectedEvent.message}</span>
-              </>
-            }
+          <h2 className={styles.h2}>【選択したカードの詳細】</h2>
+          <div className={styles.cardWrap}>
+              <LargeCard
+              cardColor="#89c0cf"
+              cardTitle={`スタンプ：${selectedEvent.id}`}
+              cardText={
+                <>
+                  {imageUrl && (
+                    <Image
+                      className={styles.img}
+                      src={imageUrl}
+                      alt={`Event ${selectedEvent.id} Image`}
+                      width={100}
+                      height={100}
+                    />
+                  )}
+                  <span>{selectedEvent.name}</span><br/>
+                  <span>{selectedEvent.message}</span>
+                </>
+              }
           />
         </div>
       </>)}

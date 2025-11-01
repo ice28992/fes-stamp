@@ -5,7 +5,7 @@ import jsQR from 'jsqr';
 import styles from './style.module.css';
 import Image from 'next/image';
 import { EventCookie } from '@/hooks/eventCookie';
-import { SmallCard } from '@/components/ui/Card';
+import { LargeCard } from '@/components/ui/Card';
 
 export default function QRReader() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -85,7 +85,7 @@ const latest = qrCodeData ? events.find(ev => qrCodeData.includes(ev.id)) : null
       {/* QRコードの内容があれば表示 */}
       {latest && (
         <div className={styles.contents}>
-          <SmallCard
+          <LargeCard
             cardColor="#89c0cf"
             cardTitle={`スタンプ ${latest.id}`}
             cardText={
@@ -95,8 +95,8 @@ const latest = qrCodeData ? events.find(ev => qrCodeData.includes(ev.id)) : null
                     className={styles.img}
                     src={imageUrl} 
                     alt={`Event ${latest.id} Image`} 
-                    width={70}
-                    height={70}
+                    width={150}
+                    height={150}
                   />
                 }
                 <span>{latest.name}</span><br/>

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { WrapCard } from '@/components/ui/Card';
 import { LargeCard } from '@/components/ui/Card';
 import { EventCookie, EventData } from '@/hooks/eventCookie';
-import styles from './page.module.css';
+import styles from './style.module.css';
 
 export default function Home() {
   const { events } = EventCookie();
@@ -61,7 +61,7 @@ export default function Home() {
       {/* 選択したスタンプの詳細カード */}
       {selectedEvent && (
         <>
-          <h2 className={styles.h2}>【選択したカードの詳細】</h2>
+          <h3 className={styles.h3}>【選択したカードの詳細】</h3>
           <div className={styles.cardWrap}>
               <LargeCard
               cardColor="#89c0cf"

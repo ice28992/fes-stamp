@@ -17,6 +17,10 @@ export default function Home() {
   return (
     <div className={styles.wrapper}>
       {/* スタンプ一覧カード */}
+      <p className={styles.p}>
+        スタンプを集めてSuwaGeeksのブースに来ると<br/>
+        ちょっといいことが待ってるかも...?
+      </p>
       <div className={styles.contents}>
         <WrapCard cardTitle="スタンプ一覧">
           {events.length === 0 ? (

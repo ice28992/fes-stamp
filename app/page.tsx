@@ -9,7 +9,7 @@ import styles from './style.module.css';
 
 export default function Home() {
   const { events } = EventCookie();
-  const totalStamps = 12;
+  const totalStamps = 11;
 
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   const imageUrl = selectedEvent ? `/images/${selectedEvent.id}.png` : null;

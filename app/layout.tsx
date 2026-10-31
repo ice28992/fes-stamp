@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { M_PLUS_Rounded_1c } from "next/font/google";
 import Header from '@/components/base/Header';
 import Footer from '@/components/base/Footer';
-// import "./globals.css";
+import "./globals.css";
 
 const MPlus = M_PLUS_Rounded_1c({
   subsets: ['latin'],

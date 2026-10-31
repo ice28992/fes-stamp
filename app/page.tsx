@@ -9,7 +9,7 @@ import styles from './style.module.css';
 
 export default function Home() {
   const { events } = EventCookie();
-  const totalStamps = 11;
+  const totalStamps = 9;
 
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   const imageUrl = selectedEvent ? `/images/${selectedEvent.id}.png` : null;
@@ -19,7 +19,8 @@ export default function Home() {
       {/* スタンプ一覧カード */}
       <p className={styles.p}>
         スタンプを集めてSuwaGeeksのブースに来ると<br/>
-        ちょっといいことが待ってるかも...?
+        お菓子がもらえます！<br/>
+        ※無くなり次第終了です
       </p>
       <div className={styles.contents}>
         <WrapCard cardTitle="スタンプ一覧">
@@ -36,8 +37,8 @@ export default function Home() {
                   <Image
                     src={`/images/${ev.id}.png`}
                     alt={`Event ${ev.id} Image`}
-                    width={70}
-                    height={70}
+                    width={60}
+                    height={60}
                   />
                 </div>
               ))}
@@ -50,15 +51,13 @@ export default function Home() {
       {events.length === totalStamps ? (
         <>
           <p className={styles.h2}>
-            SuwaGeeksのブースに行くと、<br />
-            ちょっとしたお菓子がもらえます！<br />
-            ※無くなり次第終了です
+            Congratulations!!
           </p>
           <hr />
         </>
       ) : (
         <h2 className={styles.h2}>
-          残りのスタンプは{totalStamps - events.length}個です！
+          残りのスタンプは{totalStamps - events.length}個です
         </h2>
       )}
 
